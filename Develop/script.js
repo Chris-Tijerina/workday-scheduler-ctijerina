@@ -9,6 +9,7 @@ var dateToday = date.toLocaleDateString(
     day: "numeric"
 })
 
-$("#currentDay").text(today + " " + dateToday)
 
 // Display date at top of page
+$("#currentDay").text(today + " " + dateToday)
+
