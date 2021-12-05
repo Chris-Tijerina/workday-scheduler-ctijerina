@@ -1,8 +1,8 @@
 # Work Day Scheduler Starter Code
 
-### Github Link:
+### Github Link:https://github.com/Chris-Tijerina/workday-scheduler-ctijerina
 
-### Deployed Page Link:
+### Deployed Page Link:https://chris-tijerina.github.io/workday-scheduler-ctijerina/
 
 ### Description 
 Create a simple calendar application that allows a user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
