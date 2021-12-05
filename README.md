@@ -1,4 +1,4 @@
-# Work Day Scheduler Starter Code
+# Work Day Scheduler - Tijerina
 
 ### Github Link:https://github.com/Chris-Tijerina/workday-scheduler-ctijerina
 
