@@ -10,7 +10,8 @@ textarea{
   resize: none;
   color: #000000;
   border-left: 1px solid black;
-  padding: 10px;
+  padding: 0px;
+  height: 100%;
 }
 
 .jumbotron {
@@ -23,6 +24,9 @@ textarea{
 
 .description{
   white-space: pre-wrap;
+  text-align: left;
+  border: 1px solid black;
+  padding: 0px;
 }
 
 
@@ -45,17 +49,17 @@ textarea{
 
 .past {
   background-color: #d3d3d3;
-  color: white;
+  color: black;
 }
 
 .present {
   background-color: #ff6961;
-  color: white;
+  color: black;
 }
 
 .future {
   background-color: #77dd77;
-  color: white;
+  color: black;
 }
 
 .saveBtn {

@@ -13,7 +13,7 @@ var dateToday = date.toLocaleDateString(
 var loadEvents = function() {
     for ( i = 0; i < localStorage.length; i++) {
         var storageSlot = localStorage.key([i])
-        $("[data-hour =" + storageSlot + "]").children(".description").text(JSON.parse(localStorage.getItem(storageSlot)))
+        $("[data-hour =" + storageSlot + "]").children(".description").children("p").text(JSON.parse(localStorage.getItem(storageSlot)))
     }
 }
 
@@ -25,23 +25,42 @@ $(".description").on("click", function(){
     var text = $(this)
         .text()
         .trim();
-
+console.log(text)
 //create text input area
     var textInput = $("<textarea>")
-        .addClass("event-entry col-10")
+        .addClass("event-entry col-12")
         .val(text);
-    $(this).replaceWith(textInput);
+    $(this).children("p").replaceWith(textInput);
 
 // auto focus new element
     textInput.trigger("focus");
 });
 
+// unfocus element
+$(".description").on("blur", "textarea", function () {
+    var textAreaEl = $(this).parent().children(".description").children()
+    var eventText = textAreaEl.val()
+    var textPEl = $("<p>")
+        .text(eventText);
+    textAreaEl.replaceWith(textPEl)
+});
+
+
 // save event when clicking buton
 $(".saveBtn").on("click", function() {
-    var hour = ($(this).parent().attr("data-hour"))
-    var eventText = ($(this).parent().children(".event-entry").val())
+    var hour = $(this).parent().attr("data-hour")
+    var textAreaEl = $(this).parent().children(".description").children()
+    var eventText = textAreaEl.val()
     localStorage.setItem(hour, JSON.stringify(eventText))
+
+    console.log(eventText)
+    // var textPEl = $("<p>")
+    //     .text(eventText);
+    // textAreaEl.replaceWith(textPEl)
 })
+
+
+
 
 
 // create function to check each hour and compare to current hour
@@ -64,10 +83,10 @@ var auditTime = function() {
             setState($(blocks[i]).children(".description"), "past")
             console.log("success")
         } else if (hour == currentTime) {
-
+            setState($(blocks[i]).children(".description"), "present")
             console.log("success 2")
         } else {
-
+            setState($(blocks[i]).children(".description"), "future")
             console.log("success 3")
         }
     }
